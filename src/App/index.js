@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Current from './Current.js';
+import CurrentWeather from '../CurrentWeather/CurrentWeather.js';
 // import {currentWeather} from './apiCleaner.js';
-import { apiKey } from './apiKey.js'
+import { apiKey } from '../apiKey.js'
 
 
 class App extends Component {
@@ -14,6 +14,8 @@ class App extends Component {
 
   }
 
+  // prevent default on input/submit of location
+  
   componentDidMount() {
     fetch(`http://api.wunderground.com/api/${apiKey}//conditions/geolookup/hourly/forecast10day/q/CO/denver.json`)
       .then(response => response.json())
@@ -24,11 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>yo</h1>
-        <Current
-          // city={currentWeather.location}
-          // condition={currentWeather.currentCondition}
-          />
+        <CurrentWeather />
       </div>
     );
   }
