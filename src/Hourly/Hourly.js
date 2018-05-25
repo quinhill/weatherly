@@ -1,12 +1,27 @@
-import React from 'react';
-import './Hourly.css'
+import React, { Component} from 'react';
+import Card from '../Card';
+import './Hourly.css';
 
 
-const Hourly = (props) => {
+class Hourly extends Component {
+  constructor() {
+    super()
+  }
 
-  return (
-    <h1>hello</h1>
-    )
+  render(props) {
+
+    return (
+      <div className="hourlyContainer">
+        {this.props.hourlyArray.map(hour => {
+          return <Card 
+                      hour={hour.time}
+                      temp={hour.temperature}
+                      icon={hour.icon}
+                      />
+        })}
+      </div>
+      )   
+  }
 }
 
 export default Hourly;
