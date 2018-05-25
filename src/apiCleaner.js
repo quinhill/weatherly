@@ -15,3 +15,6 @@ export const hourlyCleaner = data => data.hourly_forecast.splice(1, 7).map(hour 
       return {time: hour.FCTTIME.civil, temperature: hour.temp.english, icon: hour.icon_url}
     })
 
+export const tendDayCleaner = data => data.forecast.simpleforecast.forecastday.map(day => {
+    return {weekday: day.date.weekday, daysHigh: day.high.fahrenheit, daysLow: day.low.fahrenheit}
+  })
