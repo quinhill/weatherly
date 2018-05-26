@@ -1,7 +1,7 @@
 import React from 'react';
-import './styles.css'
+import './styles.css';
 
-const Card = (props) => {
+const Card = props => {
   if(props.hour) {
     return(
       <div className="hourlyCard">
@@ -21,8 +21,6 @@ const Card = (props) => {
         </div>
       )
   }
-
-
 }
 
 

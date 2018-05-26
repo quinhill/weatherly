@@ -8,8 +8,7 @@ class Hourly extends Component {
     super()
   }
 
-  render(props) {
-
+  render() {
     return (
       <div className="hourlyContainer">
         {this.props.hourlyArray.map(hour => {

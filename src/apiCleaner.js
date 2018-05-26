@@ -1,8 +1,12 @@
 export const currentCleaner = (data) => {
   return {
-  feelslike: data.current_observation.feelslike_string,
+  feelsLike: data.current_observation.feelslike_string,
+  humidity: data.current_observation.relative_humidity,
+  visibility: data.current_observation.visibility_mi,
+  wind: data.current_observation.wind_mph,
+
   location: data.current_observation.display_location.full,
-  weekday: data.hourly_forecast[0].FCTTIME.weekday_name_abbrev,
+  weekday: data.hourly_forecast[0].FCTTIME.weekday_name,
   month: data.hourly_forecast[0].FCTTIME.month_name_abbrev,
   day: data.hourly_forecast[0].FCTTIME.mday,
   summary: data.forecast.txt_forecast.forecastday[0].fcttext,

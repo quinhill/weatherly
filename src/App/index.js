@@ -22,7 +22,10 @@ class App extends Component {
   componentDidMount() {
     fetch(`http://api.wunderground.com/api/${apiKey}//conditions/geolookup/hourly/forecast10day/q/CO/denver.json`)
       .then(response => response.json())
-      .then(data => this.setState({current: currentCleaner(data), hourly: hourlyCleaner(data), tenDay: tendDayCleaner(data)}))
+      .then(data => this.setState({
+          current: currentCleaner(data), 
+          hourly: hourlyCleaner(data), 
+          tenDay: tendDayCleaner(data)}))
       .catch(err => console.log(err))
   }
 
@@ -30,13 +33,17 @@ class App extends Component {
     return (
       <div className="App">
         <CurrentWeather 
-            weekDay={this.state.current.weekday}
             day={this.state.current.day}
-            location={this.state.current.location} 
-            currentTemp={this.state.current.currentTemp}
+            month={this.state.current.month}
+            weekDay={this.state.current.weekday}
             daysLow={this.state.current.daysLow}
-            daysHigh={this.state.current.daysHigh}
             summary={this.state.current.summary}
+            humidity={this.state.current.humidity}
+            location={this.state.current.location} 
+            daysHigh={this.state.current.daysHigh}
+            feelsLike={this.state.current.feelsLike}
+            visibility={this.state.current.visibility}
+            currentTemp={this.state.current.currentTemp}
             />
         <Hourly 
             hourlyArray={this.state.hourly}
