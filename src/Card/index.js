@@ -1,11 +1,12 @@
 import React from 'react';
+import './styles.css'
 
 const Card = (props) => {
   if(props.hour) {
     return(
-      <div>
-        <h4>{props.hour}</h4>
-        <h4>{props.temp}</h4>
+      <div className="hourlyCard">
+        <h3>{props.hour}</h3>
+        <h4>{props.temp}&deg;</h4>
         <img src={props.icon}/>
       </div>
     )
@@ -13,10 +14,10 @@ const Card = (props) => {
 
   if(props.weekday) {
     return(
-        <div>
-          <h4>{props.weekday}</h4>
-          <h4>{props.daysLow}</h4>
-          <h4>{props.daysHigh}</h4>
+        <div className="dailyCard">
+          <h3>{props.weekday}</h3>
+          <h4>High: {props.daysHigh}&deg;</h4>
+          <h4>Low: {props.daysLow}&deg;</h4>
         </div>
       )
   }

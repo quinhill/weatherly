@@ -1,5 +1,6 @@
 export const currentCleaner = (data) => {
   return {
+  feelslike: data.current_observation.feelslike_string,
   location: data.current_observation.display_location.full,
   weekday: data.hourly_forecast[0].FCTTIME.weekday_name_abbrev,
   month: data.hourly_forecast[0].FCTTIME.month_name_abbrev,
