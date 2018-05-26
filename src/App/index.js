@@ -30,6 +30,8 @@ class App extends Component {
     return (
       <div className="App">
         <CurrentWeather 
+            weekDay={this.state.current.weekday}
+            day={this.state.current.day}
             location={this.state.current.location} 
             currentTemp={this.state.current.currentTemp}
             daysLow={this.state.current.daysLow}

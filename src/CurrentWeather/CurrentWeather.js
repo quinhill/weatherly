@@ -9,17 +9,18 @@ const Current = (props) => {
       <div className="container">
         <div className="CurrentWeather">
           <h1>{props.location}</h1>
+              {props.weekDay} {props.day}
             <h2>
               <img src="https://image.flaticon.com/icons/svg/53/53565.svg" />
-              {props.currentTemp}
+              {props.currentTemp}&deg;
             </h2>
           <div className="temp">
             <h4>Low</h4>
-            <h3>{props.daysLow}</h3>
+            <h3>{props.daysLow}&deg;</h3>
           </div>
           <div className="temp">
             <h4>High</h4>
-            <h3>{props.daysHigh}</h3>
+            <h3>{props.daysHigh}&deg;</h3>
           </div>
 
             <p>{props.summary}</p>
