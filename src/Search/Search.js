@@ -3,7 +3,7 @@ import './Search.css'
 
 class Search extends Component {
   constructor(props) {
-    super()
+    super(props)
 
     this.state = {
       userSelectedCity: props.selectedCity
@@ -16,7 +16,7 @@ render() {
     <div>
       <input
         type="text"
-        value={this.state.selectedCity}
+        value={this.state.UserSelectedCity}
         onChange={(event) => {
           this.setState({
             userSelectedCity: event.target.value

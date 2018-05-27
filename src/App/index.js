@@ -15,7 +15,7 @@ class App extends Component {
       current: {},
       hourly: [],
       tenDay: [],
-      selectedCity: 'denver'
+      selectedCity: 'boulder'
     }
 
     this.filterLocation = this.filterLocation.bind(this)
@@ -31,12 +31,14 @@ class App extends Component {
           hourly: hourlyCleaner(data), 
           tenDay: tendDayCleaner(data)}))
       .catch(err => console.log(err))
+
   }
 
-  filterLocation(state) {
+  filterLocation(searchInput) {
     this.setState({
-      selectedCity: state.userSelectedCity
+      selectedCity: searchInput.userSelectedCity
     })
+    this.componentDidMount();
   }
 
   render() {
