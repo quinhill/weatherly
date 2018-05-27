@@ -3,8 +3,9 @@ import './App.css';
 import CurrentWeather from '../CurrentWeather/CurrentWeather.js';
 import Hourly from '../Hourly/Hourly.js'
 import TenDayForecast from '../TenDay/TenDayForecast.js';
-// import { apiKey } from '../apiKey.js'
+import { apiKey } from '../apiKey.js'
 import { currentCleaner, hourlyCleaner, tendDayCleaner } from '../apiCleaner.js'
+import Search from '../Search/Search.js'
 
 
 class App extends Component {
@@ -13,14 +14,17 @@ class App extends Component {
     this.state = {
       current: {},
       hourly: [],
-      tenDay: []
+      tenDay: [],
+      selectedCity: 'denver'
     }
+
+    this.filterLocation = this.filterLocation.bind(this)
   }
 
   // prevent default on input/submit of location
   
   componentDidMount() {
-    fetch(`http://api.wunderground.com/api/61f3804395d6e61b//conditions/geolookup/hourly/forecast10day/q/CO/denver.json`)
+    fetch(`http://api.wunderground.com/api/${apiKey}//conditions/geolookup/hourly/forecast10day/q/CO/${this.state.selectedCity}.json`)
       .then(response => response.json())
       .then(data => this.setState({
           current: currentCleaner(data), 
@@ -29,9 +33,19 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
+  filterLocation(state) {
+    this.setState({
+      selectedCity: state.userSelectedCity
+    })
+  }
+
   render() {
     return (
       <div className="App">
+        <Search 
+            filterLocation={this.filterLocation}
+            selectedCity={this.state.selectedCity}
+            />
         <CurrentWeather 
             day={this.state.current.day}
             month={this.state.current.month}
