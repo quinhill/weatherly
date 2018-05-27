@@ -3,7 +3,7 @@ import './App.css';
 import CurrentWeather from '../CurrentWeather/CurrentWeather.js';
 import Hourly from '../Hourly/Hourly.js'
 import TenDayForecast from '../TenDay/TenDayForecast.js';
-import { apiKey } from '../apiKey.js'
+// import { apiKey } from '../apiKey.js'
 import { currentCleaner, hourlyCleaner, tendDayCleaner } from '../apiCleaner.js'
 
 
@@ -20,7 +20,7 @@ class App extends Component {
   // prevent default on input/submit of location
   
   componentDidMount() {
-    fetch(`http://api.wunderground.com/api/${apiKey}//conditions/geolookup/hourly/forecast10day/q/CO/denver.json`)
+    fetch(`http://api.wunderground.com/api/61f3804395d6e61b//conditions/geolookup/hourly/forecast10day/q/CO/denver.json`)
       .then(response => response.json())
       .then(data => this.setState({
           current: currentCleaner(data), 
