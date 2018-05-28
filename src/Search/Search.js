@@ -21,7 +21,8 @@ class Search extends Component {
           type="submit"
           onClick={(event) => {
             event.preventDefault()
-            this.props.getWeather(this.state.userLocation)}}>search</button>
+            this.props.getWeather(this.state.userLocation)}}>
+            search</button>
   
       </form>
     )
