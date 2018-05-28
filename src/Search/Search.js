@@ -1,36 +1,31 @@
-import React, { Component } from 'react'
-import './Search.css'
+import React, { Component} from 'react';
+
 
 class Search extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
     this.state = {
-      userSelectedCity: props.selectedCity
+      userLocation: ''
     }
   }
 
-
-render() {
-  return (
-    <div className="search" >
-      <input
-        type="text"
-        value={this.state.UserSelectedCity}
-        onChange={(event) => {
-          this.setState({
-            userSelectedCity: event.target.value
-          })
-        }}
-        />
-      <button
-        onClick={(event) => {
-          this.props.filterLocation(this.state)
-        }}
-        >search</button>
-    </div>
-
+  render(props) {
+    return (
+      <form>
+        <input 
+          type="text"
+          value={this.state.userCity}
+          onChange={(event) => this.setState({userLocation: event.target.value})} />
+        <button
+          type="submit"
+          onClick={(event) => {
+            event.preventDefault()
+            this.props.getWeather(this.state.userLocation)}}>search</button>
+  
+      </form>
     )
+  }
 }
-}
+
 export default Search;

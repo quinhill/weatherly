@@ -15,16 +15,16 @@ class App extends Component {
       current: {},
       hourly: [],
       tenDay: [],
-      selectedCity: 'boulder'
     }
-
-    this.filterLocation = this.filterLocation.bind(this)
   }
 
   // prevent default on input/submit of location
   
-  componentDidMount() {
-    fetch(`http://api.wunderground.com/api/${apiKey}//conditions/geolookup/hourly/forecast10day/q/CO/${this.state.selectedCity}.json`)
+  getWeather = (userInput) => {
+    let splitLocation = userInput.split(', ');
+    let userCity = splitLocation[0];
+    let userState = splitLocation[1];
+    fetch(`http://api.wunderground.com/api/${apiKey}//conditions/geolookup/hourly/forecast10day/q/${userState}/${userCity}.json`)
       .then(response => response.json())
       .then(data => this.setState({
           current: currentCleaner(data), 
@@ -34,20 +34,12 @@ class App extends Component {
 
   }
 
-  filterLocation(searchInput) {
-    this.setState({
-      selectedCity: searchInput.userSelectedCity
-    })
-    this.componentDidMount();
-  }
-
   render() {
     return (
       <div className="App">
         <div className="top">
           <Search 
-              filterLocation={this.filterLocation}
-              selectedCity={this.state.selectedCity}
+             getWeather={this.getWeather} 
               />
           <CurrentWeather 
               day={this.state.current.day}
@@ -66,10 +58,10 @@ class App extends Component {
         </div>
         <div className="bottom">
           <Hourly 
-              hourlyArray={this.state.hourly}
+              hourly={this.state.hourly}
               />
           <TenDayForecast 
-              tenDayArray={this.state.tenDay}
+              tenDay={this.state.tenDay}
               />
         </div>
       </div>

@@ -7,7 +7,7 @@ class TenDayForecast extends Component {
   render(props) {
     return (
       <div className="tenDayContainer">
-        {this.props.tenDayArray.map(day => {
+        {this.props.tenDay.map(day => {
           return <Card
                     weekday={day.weekday}
                     daysHigh={day.daysHigh}

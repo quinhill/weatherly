@@ -8,7 +8,7 @@ class Hourly extends Component {
   render() {
     return (
       <div className="hourlyContainer">
-        {this.props.hourlyArray.map(hour => {
+        {this.props.hourly.map(hour => {
           return <Card 
                       hour={hour.time}
                       temp={hour.temperature}
