@@ -1,9 +1,26 @@
 .hourlyCard,
 .dailyCard {
-  height: 200px;
+  height: 100%;
   margin: 2px;
   border-radius: 5px;
-  background: rgba(255, 255, 255, 0.35);
   text-align: center;
+}
+
+.hour {
+  font-size: 100%;
+}
+
+.hourTemp {
+  font-weight: 400;
+  font-size: 90%;
+}
+
+.day {
+  font-size: 100%;
+}
+
+.dayTemp {
+  font-weight: 400;
+  font-size: 90%;
 }
 

@@ -44,29 +44,33 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Search 
-            filterLocation={this.filterLocation}
-            selectedCity={this.state.selectedCity}
-            />
-        <CurrentWeather 
-            day={this.state.current.day}
-            month={this.state.current.month}
-            weekDay={this.state.current.weekday}
-            daysLow={this.state.current.daysLow}
-            summary={this.state.current.summary}
-            humidity={this.state.current.humidity}
-            location={this.state.current.location} 
-            daysHigh={this.state.current.daysHigh}
-            feelsLike={this.state.current.feelsLike}
-            visibility={this.state.current.visibility}
-            currentTemp={this.state.current.currentTemp}
-            />
-        <Hourly 
-            hourlyArray={this.state.hourly}
-            />
-        <TenDayForecast 
-            tenDayArray={this.state.tenDay}
-            />
+        <div className="top">
+          <Search 
+              filterLocation={this.filterLocation}
+              selectedCity={this.state.selectedCity}
+              />
+          <CurrentWeather 
+              day={this.state.current.day}
+              month={this.state.current.month}
+              weekDay={this.state.current.weekday}
+              daysLow={this.state.current.daysLow}
+              summary={this.state.current.summary}
+              humidity={this.state.current.humidity}
+              location={this.state.current.location} 
+              daysHigh={this.state.current.daysHigh}
+              feelsLike={this.state.current.feelsLike}
+              visibility={this.state.current.visibility}
+              currentTemp={this.state.current.currentTemp}
+              />
+        </div>
+        <div className="bottom">
+          <Hourly 
+              hourlyArray={this.state.hourly}
+              />
+          <TenDayForecast 
+              tenDayArray={this.state.tenDay}
+              />
+        </div>
       </div>
     );
   }
