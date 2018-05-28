@@ -11,8 +11,7 @@ const Hourly = (props) => {
         return <Card 
                     hour={hour.time}
                     temp={hour.temperature}
-                    icon={hour.icon}
-                    />
+                    icon={hour.icon} />
       })}
     </div>
     )   
