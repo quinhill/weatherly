@@ -5,7 +5,8 @@ import Hourly from '../Hourly/Hourly.js'
 import TenDayForecast from '../TenDay/TenDayForecast.js';
 import { apiKey } from '../apiKey.js'
 import { currentCleaner, hourlyCleaner, tendDayCleaner } from '../apiCleaner.js'
-import Search from '../Search/Search.js'
+import Search from '../Search/Search.js';
+import Welcome from '../Welcome/Welcome.js';
 
 
 class App extends Component {
@@ -15,12 +16,15 @@ class App extends Component {
       current: {},
       hourly: [],
       tenDay: [],
+      welcome: true
     }
+    this.getWeather = this.getWeather.bind(this);
   }
 
-  // prevent default on input/submit of location
+
   
   getWeather = (userInput) => {
+    this.setState({welcome: false})
     let splitLocation = userInput.split(', ');
     let userCity = splitLocation[0];
     let userState = splitLocation[1];
@@ -35,26 +39,33 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div className="App">
-        <div className="top">
-          <Search 
-             getWeather={this.getWeather} 
-              />
-          <CurrentWeather 
-              current={this.state.current}
-              />
+    if (this.state.welcome) {
+      return (
+          <Welcome
+          getWeather={this.getWeather} />
+      )
+    } else {
+      return (
+        <div className="App">
+          <div className="top">
+            <Search 
+              getWeather={this.getWeather} 
+                />
+            <CurrentWeather 
+                current={this.state.current}
+                />
+          </div>
+          <div className="bottom">
+            <Hourly 
+                hourly={this.state.hourly}
+                />
+            <TenDayForecast 
+                tenDay={this.state.tenDay}
+                />
+          </div>
         </div>
-        <div className="bottom">
-          <Hourly 
-              hourly={this.state.hourly}
-              />
-          <TenDayForecast 
-              tenDay={this.state.tenDay}
-              />
-        </div>
-      </div>
-    );
+      );
+    }
   }
 }
 export default App;
