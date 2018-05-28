@@ -16,7 +16,8 @@ class App extends Component {
       current: {},
       hourly: [],
       tenDay: [],
-      welcome: true
+      welcome: true,
+      error: false
     }
     this.getWeather = this.getWeather.bind(this);
   }
@@ -34,8 +35,10 @@ class App extends Component {
           current: currentCleaner(data), 
           hourly: hourlyCleaner(data), 
           tenDay: tendDayCleaner(data)}))
-      .catch(err => console.log(err))
-
+      .catch(err => {
+        this.setState({error: true})
+        alert('Sorry, we could not find that location, please enter your search in the correct format')
+      })
   }
 
   render() {
