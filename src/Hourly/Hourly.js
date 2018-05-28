@@ -1,23 +1,21 @@
-import React, { Component} from 'react';
+import React from 'react';
 import Card from '../Card';
 import './Hourly.css';
 
 
-class Hourly extends Component {
+const Hourly = (props) => {
 
-  render() {
-    return (
-      <div className="hourlyContainer">
-        {this.props.hourly.map(hour => {
-          return <Card 
-                      hour={hour.time}
-                      temp={hour.temperature}
-                      icon={hour.icon}
-                      />
-        })}
-      </div>
-      )   
-  }
+  return (
+    <div className="hourlyContainer">
+      {props.hourly.map(hour => {
+        return <Card 
+                    hour={hour.time}
+                    temp={hour.temperature}
+                    icon={hour.icon}
+                    />
+      })}
+    </div>
+    )   
 }
 
 export default Hourly;

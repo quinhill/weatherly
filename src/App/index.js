@@ -42,18 +42,7 @@ class App extends Component {
              getWeather={this.getWeather} 
               />
           <CurrentWeather 
-              day={this.state.current.day}
-              month={this.state.current.month}
-              weekDay={this.state.current.weekday}
-              daysLow={this.state.current.daysLow}
-              summary={this.state.current.summary}
-              humidity={this.state.current.humidity}
-              location={this.state.current.location} 
-              daysHigh={this.state.current.daysHigh}
-              feelsLike={this.state.current.feelsLike}
-              visibility={this.state.current.visibility}
-              currentTemp={this.state.current.currentTemp}
-              icon={this.state.current.icon}
+              current={this.state.current}
               />
         </div>
         <div className="bottom">

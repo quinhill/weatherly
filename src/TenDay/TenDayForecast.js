@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Card from '../Card';
 import './TenDayForecast.css'
 
-class TenDayForecast extends Component {
+const TenDayForecast = (props) => {
 
-  render(props) {
     return (
       <div className="tenDayContainer">
-        {this.props.tenDay.map(day => {
+        {props.tenDay.map(day => {
           return <Card
                     weekday={day.weekday}
                     daysHigh={day.daysHigh}
@@ -16,8 +15,6 @@ class TenDayForecast extends Component {
         })}
       </div>
       )
-
-  }
 }
 
 export default TenDayForecast;
