@@ -12,15 +12,20 @@ const Current = (props) => {
           <h4 className="currentTemp" >{props.currentTemp}&deg;, 
           Feels Like {props.feelsLike}&deg;
           </h4>
-        <div className="temp">
-          <h4>Low</h4>
-          <h3>{props.daysLow}&deg;</h3>
-          <p>humidity: {props.humidity}</p>
-        </div>
-        <div className="temp">
-          <h4>High</h4>
-          <h3>{props.daysHigh}&deg;</h3>
-          <p>visibility: {props.visibility}</p>
+        <div className="tempInfo">
+          <div className="temp">
+            <h4>Low</h4>
+            <h3>{props.daysLow}&deg;</h3>
+            <p>humidity: {props.humidity}</p>
+          </div>
+          <div className="icon">
+            <img src={props.icon} />
+          </div>
+          <div className="temp">
+            <h4>High</h4>
+            <h3>{props.daysHigh}&deg;</h3>
+            <p>visibility: {props.visibility}</p>
+          </div>
         </div>
 
           <p>{props.summary}</p>

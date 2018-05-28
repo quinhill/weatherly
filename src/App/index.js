@@ -61,6 +61,7 @@ class App extends Component {
               feelsLike={this.state.current.feelsLike}
               visibility={this.state.current.visibility}
               currentTemp={this.state.current.currentTemp}
+              icon={this.state.current.icon}
               />
         </div>
         <div className="bottom">

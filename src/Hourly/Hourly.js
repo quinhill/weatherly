@@ -4,9 +4,6 @@ import './Hourly.css';
 
 
 class Hourly extends Component {
-  constructor() {
-    super()
-  }
 
   render() {
     return (

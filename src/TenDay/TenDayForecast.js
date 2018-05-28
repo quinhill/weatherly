@@ -3,9 +3,6 @@ import Card from '../Card';
 import './TenDayForecast.css'
 
 class TenDayForecast extends Component {
-  constructor() {
-    super()
-  }
 
   render(props) {
     return (
