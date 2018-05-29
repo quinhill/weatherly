@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../Card';
-import './Hourly.css';
+import './styles.css';
 
 
 const Hourly = (props) => {
