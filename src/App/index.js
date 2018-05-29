@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './App.css';
-import CurrentWeather from '../CurrentWeather/CurrentWeather.js';
-import Hourly from '../Hourly/Hourly.js'
-import TenDayForecast from '../TenDay/TenDayForecast.js';
+import './styles.css';
+import CurrentWeather from '../Current';
+import Hourly from '../Hourly'
+import TenDayForecast from '../TenDay';
 import { apiKey } from '../apiKey.js'
 import { currentCleaner, hourlyCleaner, tendDayCleaner } from '../apiCleaner.js'
-import Search from '../Search/Search.js';
-import Welcome from '../Welcome/Welcome.js';
+import Search from '../Search';
+import Welcome from '../Welcome';
 
 
 class App extends Component {

@@ -6,7 +6,6 @@
   display: grid;
   grid-template-rows: 50% 50%;
   background-image: url('../images/blue-sky.jpg');
-  background-size: cover;
 }
 
 .top {

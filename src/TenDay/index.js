@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../Card';
-import './TenDayForecast.css'
+import './styles.css'
 
 const TenDayForecast = (props) => {
 
