@@ -9,8 +9,8 @@ const Hourly = (props) => {
     <div className="hourlyContainer">
       {props.hourly.map(hour => {
         return <Card 
-                    hour={hour.time}
                     temp={hour.temperature}
+                    hour={hour.time}
                     icon={hour.icon} />
       })}
     </div>

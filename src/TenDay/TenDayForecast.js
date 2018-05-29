@@ -8,10 +8,10 @@ const TenDayForecast = (props) => {
       <div className="tenDayContainer">
         {props.tenDay.map(day => {
           return <Card
-                    weekday={day.weekday}
-                    daysHigh={day.daysHigh}
-                    daysLow={day.daysLow}
                     icon={day.icon}
+                    weekday={day.weekday}
+                    daysLow={day.daysLow}
+                    daysHigh={day.daysHigh}
                     />
         })}
       </div>
