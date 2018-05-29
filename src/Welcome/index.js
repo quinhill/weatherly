@@ -1,6 +1,6 @@
 import React from 'react';
-import Search from '../Search/Search.js';
-import './Welcome.css';
+import Search from '../Search';
+import './styles.css';
 
 const Welcome = (props) => {
 
