@@ -42,9 +42,7 @@ const Current = ({current}) => {
             <p>visibility: {visibility}</p>
           </div>
         </div>
-
           <p>{summary}</p>
-
       </div>
     )
   
