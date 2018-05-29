@@ -12,14 +12,14 @@ export const currentCleaner = (data) => {
   currentTemp: data.current_observation.temp_f,
   daysHigh: data.forecast.simpleforecast.forecastday[0].high.fahrenheit,
   daysLow: data.forecast.simpleforecast.forecastday[0].low.fahrenheit,
-  icon: data.hourly_forecast[0].icon_url
+  icon: `/svg/${data.hourly_forecast[0].icon}.svg`
   }
 }
 
 export const hourlyCleaner = data => data.hourly_forecast.splice(1, 7).map(hour => {
-      return {time: hour.FCTTIME.civil, temperature: hour.temp.english, icon: hour.icon_url}
+      return {time: hour.FCTTIME.civil, temperature: hour.temp.english, icon: `/svg/${hour.icon}.svg`}
     })
 
 export const tendDayCleaner = data => data.forecast.simpleforecast.forecastday.map(day => {
-    return {weekday: day.date.weekday, daysHigh: day.high.fahrenheit, daysLow: day.low.fahrenheit}
+    return {weekday: day.date.weekday, daysHigh: day.high.fahrenheit, daysLow: day.low.fahrenheit, icon: `/svg/${day.icon}.svg`}
   })

@@ -11,6 +11,7 @@ const TenDayForecast = (props) => {
                     weekday={day.weekday}
                     daysHigh={day.daysHigh}
                     daysLow={day.daysLow}
+                    icon={day.icon}
                     />
         })}
       </div>

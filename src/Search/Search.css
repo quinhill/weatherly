@@ -1,11 +1,12 @@
 input {
   width: 250px;
   height: 26px;
-  margin-top: 10px;
+  margin: 10px 0 0 10px;
   border-radius: 5px 0 0 5px;
   border-style: none;
   font-size: 15px;
   outline: none;
+  
 }
 
 button {

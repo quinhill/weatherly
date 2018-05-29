@@ -16,7 +16,6 @@ class Search extends Component {
       <form>
         <input 
           placeholder="Search example: Denver, CO"
-          onfocus={this.placeholder = ''}
           type="text"
           onChange={(event) => this.setState({userLocation: event.target.value})} />
         <button

@@ -18,6 +18,7 @@ const Card = props => {
         <h3 className="day">{props.weekday}</h3>
         <h4 className="dayTemp">High: {props.daysHigh}&deg;</h4>
         <h4 className="dayTemp">Low: {props.daysLow}&deg;</h4>
+        <img src={props.icon} />
       </div> 
       )
   }
