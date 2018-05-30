@@ -6,18 +6,19 @@ describe('App unit tests', () => {
 
   let renderedApp;
   beforeEach(() => {
-    renderedApp = shallow(<App />)
+    renderedApp = shallow(<App />, { disableLifecycleMethods: true })
   });
 
   describe('App default state', ()=> {
-    test('App has a default state of current, hourly, tenDay, welcome, and error', () => {
+    test('App has a default state of current', () => {
       const expectedState = {}
       const actualState = renderedApp.state('current')
 
       expect(actualState).toEqual(expectedState)
     })
+  
 
-    test('App has a default state of current, hourly, tenDay, welcome, and error', () => {
+    test('App has a default state of hourly, hourly, tenDay, welcome, and error', () => {
       const expectedState = []
       const actualState = renderedApp.state('hourly')
 
@@ -57,28 +58,29 @@ describe('App unit tests', () => {
       expect(actual).toBe(expected);
     })
 
-    test('when getWeather is called it should populate state', () => {
-      const expectedCurrent = expect.objectContaining({
-        feelslike: '65.3 F (18.5 C)',
-        humidity: '41%',
-        visibility: '10.0',
-        location: 'Denver, CO',
-        weekday: 'Thursday',
-        month: 'May',
-        day: '24',
-        summary: 'Sunny to partly cloudy. High 84F. Winds ENE at 5 to 10 mph.',
-        currentTemp: 65.3,
-        wind: 1.1,
-        daysHigh: '84',
-        daysLow: '54'
-      })
-      
-      renderedApp.instance().getWeather('denver, co');
+    test('when splitLocation is called it returns an object containing userCity and userState', () => {
+      const expectedObj = { userCity: 'denver', userState: 'co'}
+      const actualObj = renderedApp.instance().splitLocation('denver, co')
 
-      const actualState = renderedApp.state('current')
+      expect(actualObj).toEqual(expectedObj)
 
-      expect(actualState).toBe(expectedCurrent)
+
     })
     
   })
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
