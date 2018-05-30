@@ -3,7 +3,7 @@ import Card from '../Card';
 import './styles.css';
 
 
-const Hourly = (props) => {
+const Hourly = props => {
 
   return (
     <div className="hourlyContainer">

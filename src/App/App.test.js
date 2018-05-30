@@ -60,11 +60,10 @@ describe('App unit tests', () => {
 
     test('when splitLocation is called it returns an object containing userCity and userState', () => {
       const expectedObj = { userCity: 'denver', userState: 'co'}
+
       const actualObj = renderedApp.instance().splitLocation('denver, co')
 
       expect(actualObj).toEqual(expectedObj)
-
-
     })
     
   })
