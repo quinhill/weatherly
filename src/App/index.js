@@ -22,7 +22,7 @@ class App extends Component {
     this.getWeather = this.getWeather.bind(this);
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     let location = localStorage.getItem('location')
     if (location) {
     this.getWeather(location)
@@ -30,12 +30,17 @@ class App extends Component {
 
   }  
 
-
-  getWeather = (userInput) => {
-    this.setState({welcome: false})
+  splitLocation(userInput) {
     let splitLocation = userInput.split(', ');
     let userCity = splitLocation[0];
     let userState = splitLocation[1];
+    return { userCity, userState };
+  }
+
+
+  getWeather(userInput) {
+    this.setState({welcome: false});
+    const { userCity, userState } = this.splitLocation(userInput)
     fetch(`http://api.wunderground.com/api/${apiKey}//conditions/geolookup/hourly/forecast10day/q/${userState}/${userCity}.json`)
       .then(response => response.json())
       .then(data => this.setState({
