@@ -4,7 +4,7 @@ import CurrentWeather from '../Current';
 import Hourly from '../Hourly'
 import TenDayForecast from '../TenDay';
 import { apiKey } from '../apiKey.js'
-import { currentCleaner, hourlyCleaner, tendDayCleaner } from '../apiCleaner.js'
+import { currentCleaner, hourlyCleaner, tenDayCleaner } from '../apiCleaner.js'
 import Search from '../Search';
 import Welcome from '../Welcome';
 
@@ -46,7 +46,7 @@ class App extends Component {
       .then(data => this.setState({
           current: currentCleaner(data), 
           hourly: hourlyCleaner(data), 
-          tenDay: tendDayCleaner(data)},
+          tenDay: tenDayCleaner(data)},
           localStorage.setItem('location', userInput)))
       .catch(err => {
         this.setState({error: true})
