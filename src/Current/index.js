@@ -33,7 +33,7 @@ const Current = ({current}) => {
             <p>humidity: {humidity}</p>
           </div>
           <div className="icon">
-            <img src={icon} />
+            <img alt="weather icon" src={icon} />
           </div>
           <div className="temp">
             <h4>High</h4>

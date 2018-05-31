@@ -1,0 +1,13 @@
+import Trie from '@quinhill/complete-me';
+
+ const trie = new Trie();
+ trie.populate(data)
+
+       <datalist id="cities">    
+         { this.citySuggest() }
+       </datalist>
+
+citySuggest() {
+   trie.suggest(this.state.userLocation);
+     return trie.suggestions.splice(0, 5).map(city => <option>{city}</option> )
+ }
