@@ -37,17 +37,26 @@ class App extends Component {
     return { userCity, userState };
   }
 
+  storeLocation(userInput) {
+    localStorage.setItem('location', userInput)
+  }
+
+  newState(data) {
+   return this.setState({
+      current: currentCleaner(data),
+      hourly: hourlyCleaner(data),
+      tenDay: tenDayCleaner(data)
+    })
+  }
 
   getWeather(userInput) {
     this.setState({welcome: false});
-    const { userCity, userState } = this.splitLocation(userInput)
+    const { userCity, userState } = this.splitLocation(userInput);
+    this.storeLocation(userInput);
+
     fetch(`http://api.wunderground.com/api/${apiKey}//conditions/geolookup/hourly/forecast10day/q/${userState}/${userCity}.json`)
       .then(response => response.json())
-      .then(data => this.setState({
-          current: currentCleaner(data), 
-          hourly: hourlyCleaner(data), 
-          tenDay: tenDayCleaner(data)},
-          localStorage.setItem('location', userInput)))
+      .then(data => this.newState(data))
       .catch(err => {
         this.setState({error: true})
         alert('Sorry, we could not find that location, please enter your search in the correct format')
