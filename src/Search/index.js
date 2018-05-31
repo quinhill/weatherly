@@ -1,11 +1,6 @@
 import React, { Component} from 'react';
 import './styles.css';
 import { data } from '../cities.js';
-import Trie from '@quinhill/complete-me';
-
-  const trie = new Trie();
-  trie.populate(data)
-
 
 
 class Search extends Component {
@@ -21,10 +16,6 @@ class Search extends Component {
  
   }
 
-  citySuggest() {
-    trie.suggest(this.state.userLocation);
-      return trie.suggestions.splice(0, 5).map(city => <option>{city}</option> )
-  }
 
   updateInput(event) {
     const value = event.target.value;
@@ -46,7 +37,6 @@ class Search extends Component {
           value={ this.state.userLocation }
           onChange={ this.updateInput } />
         <datalist id="cities">     
-          { this.citySuggest() }
         </datalist>
         <button
           type="submit"

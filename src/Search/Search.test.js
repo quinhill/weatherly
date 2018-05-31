@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Search from '../Search';
-import Trie from '@quinhill/complete-me';
+
 
 describe('Welcome', () => {
 
