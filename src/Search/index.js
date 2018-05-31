@@ -1,23 +1,22 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 import './styles.css';
 
 class Search extends Component {
   constructor() {
-    super()
+    super();
 
     this.state = {
       userLocation: ''
-    }
-    this.updateInput = this.updateInput.bind(this)
-    this.submitLocation = this.submitLocation.bind(this)
-
- 
+    };
+   
+    this.updateInput = this.updateInput.bind(this);
+    this.submitLocation = this.submitLocation.bind(this);
   }
 
 
   updateInput(event) {
     const value = event.target.value;
-    this.setState({userLocation: value});
+    this.setState({ userLocation: value });
   }
 
   submitLocation(event) {
@@ -25,23 +24,23 @@ class Search extends Component {
     this.props.getWeather(this.state.userLocation);
   }
 
-  render(props) {
+  render() {
     return (
       <form>
-        <input 
+        <input
           list="cities"
           placeholder="Search example: Denver, CO"
           type="text"
-          value={ this.state.userLocation }
-          onChange={ this.updateInput } />
-        <datalist id="cities">     
-        </datalist>
+          value={this.state.userLocation}
+          onChange={this.updateInput} />
+        <datalist id="cities" />
         <button
           type="submit"
-          onClick={ this.submitLocation }>
-            search</button>  
+          onClick={this.submitLocation} >
+            search
+        </button>
       </form>
-    )
+    );
   }
 }
 
