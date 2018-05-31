@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import './styles.css';
-import data from '../cities';
-// import Trie from '@quinhill/complete-me';
+import { data } from '../cities.js';
+
 
 class Search extends Component {
   constructor() {
@@ -10,20 +10,37 @@ class Search extends Component {
     this.state = {
       userLocation: ''
     }
+    this.updateInput = this.updateInput.bind(this)
+    this.submitLocation = this.submitLocation.bind(this)
+
+ 
+  }
+
+
+  updateInput(event) {
+    const value = event.target.value;
+    this.setState({userLocation: value});
+  }
+
+  submitLocation(event) {
+    event.preventDefault();
+    this.props.getWeather(this.state.userLocation);
   }
 
   render(props) {
     return (
       <form>
         <input 
+          list="cities"
           placeholder="Search example: Denver, CO"
           type="text"
-          onChange={(event) => this.setState({userLocation: event.target.value})} />
+          value={ this.state.userLocation }
+          onChange={ this.updateInput } />
+        <datalist id="cities">     
+        </datalist>
         <button
           type="submit"
-          onClick={(event) => {
-            event.preventDefault()
-            this.props.getWeather(this.state.userLocation)}}>
+          onClick={ this.submitLocation }>
             search</button>  
       </form>
     )

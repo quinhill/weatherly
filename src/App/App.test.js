@@ -18,14 +18,14 @@ describe('App unit tests', () => {
     })
   
 
-    test('App has a default state of hourly, hourly, tenDay, welcome, and error', () => {
+    test('App has a default state of hourly', () => {
       const expectedState = []
       const actualState = renderedApp.state('hourly')
 
       expect(actualState).toEqual(expectedState)
     })
 
-    test('App has a default state of current, hourly, tenDay, welcome, and error', () => {
+    test('App has a default state of tenDay', () => {
       const expectedState = []
       const actualState = renderedApp.state('tenDay')
 
@@ -40,7 +40,7 @@ describe('App unit tests', () => {
 
     })
 
-    test('App has a default state of current, hourly, tenDay, welcome, and error', () => {
+    test('App has a default state of error', () => {
       const expectedState = false
       const actualState = renderedApp.state('error')
 
@@ -50,9 +50,7 @@ describe('App unit tests', () => {
   describe('getWeather method', ()=> {
     test('should toggle state.welcome to false', () => {
       const expected = false;
-
       renderedApp.instance().getWeather('userInput');
-
       const actual = renderedApp.state('welcome');
 
       expect(actual).toBe(expected);
@@ -63,8 +61,6 @@ describe('App unit tests', () => {
       const actualObj = renderedApp.instance().splitLocation('denver, co')
 
       expect(actualObj).toEqual(expectedObj)
-
-
     })
     
   })
