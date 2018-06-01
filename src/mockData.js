@@ -1,4 +1,4 @@
-export default const data = {
+export const data = {
     
   "response": {
   "version":"0.1",

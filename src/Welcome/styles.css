@@ -3,7 +3,7 @@
   height: 100vh;
   max-height: 100%;
   color: white;
-  background-image: url('../images/blue-sky.jpg');
+  background-image: url('/images/blue-sky.jpg');
   background-size: cover;
   display: flex;
   flex-direction: column;
