@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import Search from '../Search';
 
 
-describe('Welcome', () => {
+describe('Search', () => {
   let renderedSearch;
   let mockGetWeather;
 
