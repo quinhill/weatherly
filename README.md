@@ -8,5 +8,5 @@ We get the data from www.weatherunderground.com and parse it into smaller object
 
 Below is a gif, showing the visuals of our finished project.
 
-[![https://gph.is/2splpI5]]
+[https://gph.is/2splpI5]
 
