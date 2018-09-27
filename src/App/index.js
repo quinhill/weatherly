@@ -3,7 +3,7 @@ import './styles.css';
 import CurrentWeather from '../Current';
 import Hourly from '../Hourly';
 import TenDayForecast from '../TenDay';
-import { apiKey } from '../apiKey';
+// import { apiKey } from '../apiKey';
 import { currentCleaner, hourlyCleaner, tenDayCleaner } from '../apiCleaner';
 import Search from '../Search';
 import Welcome from '../Welcome';
@@ -34,7 +34,7 @@ class App extends Component {
     const { userCity, userState } = this.splitLocation(userInput);
     this.storeLocation(userInput);
 
-    fetch(`http://api.wunderground.com/api/${apiKey}//conditions/geolookup/hourly/forecast10day/q/${userState}/${userCity}.json`)
+    fetch(`http://api.wunderground.com/api/61f3804395d6e61b//conditions/geolookup/hourly/forecast10day/q/${userState}/${userCity}.json`)
       .then(response => response.json())
       .then(data => this.newState(data))
       .catch(() => {
