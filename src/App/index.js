@@ -34,10 +34,11 @@ class App extends Component {
     const { userCity, userState } = this.splitLocation(userInput);
     this.storeLocation(userInput);
 
-    fetch(`http://api.wunderground.com/api/61f3804395d6e61b/conditions/geolookup/hourly/forecast10day/q/${userState}/${userCity}.json`)
+    fetch(`https://api.wunderground.com/api/61f3804395d6e61b/conditions/geolookup/hourly/forecast10day/q/${userState}/${userCity}.json`)
       .then(response => response.json())
       .then(data => this.newState(data))
-      .catch(() => {
+      .catch((error) => {
+        console.log(error)
         alert('Sorry, we could not find that location, please enter your search in the correct format');
       });
   }
