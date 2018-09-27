@@ -14,6 +14,11 @@ Weatherly is a web app allowing for the search of weather reports for an array o
 
 Weatherly is a pair project during the second module of Turing School of Software and Design's Front End Development program. Our goal was to become familiar with API fetch calls and learn React, by building a functional app with a intuitive design. We accomplished this in a two week time-frame.
 
+### Installing
+
+To run Weatherly on your local computer, run the following command to clone this repo:
+`
+
 ### Tech Stack
 
 * React
